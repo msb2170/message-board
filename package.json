@@ -1,0 +1,26 @@
+{
+  "name": "message-board",
+  "version": "1.0.0",
+  "description": "Message Board app using the MERN stack",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/msb2170/message-board.git"
+  },
+  "author": "Matthew Byrd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/msb2170/message-board/issues"
+  },
+  "homepage": "https://github.com/msb2170/message-board#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0",
+    "nodemon": "^2.0.20"
+  }
+}
