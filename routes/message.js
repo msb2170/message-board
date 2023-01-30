@@ -22,9 +22,10 @@ router.get('/message', (req, res) => {
 //Post a message
 router.post('/message', (req, res) => {
     let message = new Message({
-        title: req.query.title,
-        messageText: req.query.messageText,
-        date: req.query.date
+        author: req.body.author,
+        title: req.body.title,
+        messageText: req.body.messageText,
+        date: req.body.date
     })
     message.save((err, db) => {
         if (err) {

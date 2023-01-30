@@ -2,13 +2,18 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 require('dotenv').config();
+const bodyParser = require('body-parser')
+
 
 //configure Express
 const app = express();
 
 app.use(cors());
+app.use(bodyParser.json({ limit: "30mb", extended: true }))
+app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(express.json())
 app.use(require('./routes/message'))
+
 
 //Routes
 app.get('/', (req,res) => {
