@@ -19,6 +19,18 @@ router.get('/message', (req, res) => {
     })
 })
 
+//Get a single post
+router.get('/message/:id', (req, res) => {
+    const {id} = req.params
+    
+    Message.findById(id).exec((err, post) => {
+        if (err) {
+            return res.status(500).json({err})
+        }
+        res.json(post)
+    })
+})
+
 //Post a message
 router.post('/message', (req, res) => {
     let message = new Message({
@@ -34,5 +46,9 @@ router.post('/message', (req, res) => {
         res.json({db})
     })
 })
+
+//Update a message
+
+//Delete a message
 
 module.exports = router;
