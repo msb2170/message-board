@@ -9,8 +9,8 @@ export default function Message(props) {
                 <h2>{props.messageText}</h2>
                 <h4>{props.date}</h4>
             </div>
-            <button>edit</button>
-            <button>delete</button>
+            <button className="card-btn" onClick={() => {console.log('editing')}}>edit</button>
+            <button className="card-btn" onClick={props.handleDelete}>delete</button>
         </div>
     )
 }

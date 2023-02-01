@@ -1,4 +1,5 @@
 const express = require('express');
+const { default: mongoose } = require('mongoose');
 const router = express.Router();
 
 //Pass in the user model
@@ -48,7 +49,35 @@ router.post('/message', (req, res) => {
 })
 
 //Update a message
+router.patch('/message/:id', (req, res) => {
+    const { id: _id } = req.params;
+    const post = req.body;
+
+    if (!mongoose.Types.ObjectId.isValid(_id)) {
+        return res.status(404).send('No post with that ID')
+    }
+    Message.findByIdAndUpdate(_id, {...post, _id}, {new: true}).exec((err, updatedPost) => {
+        if (err) {
+            return res.status(500).json(err)
+        }
+        res.json(updatedPost)
+    })
+})
 
 //Delete a message
+router.delete('/message/:id', (req,res) => {
+    const {id} = req.params
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(404).send('No post with that ID')
+    }
+    
+    Message.findByIdAndRemove(id).exec((err) => {
+        if (err) {
+            return res.status(500).json(err)
+        }
+        res.json({message: "Post deleted"})
+    })
+})
 
 module.exports = router;

@@ -14,12 +14,6 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }))
 app.use(express.json())
 app.use(require('./routes/message'))
 
-
-//Routes
-app.get('/', (req,res) => {
-    res.send('hello world')
-})
-
 //MongoDB connection
 mongoose.set('strictQuery', true)
 mongoose.connect(process.env.MONGO_URI, {useNewURLParser: true})

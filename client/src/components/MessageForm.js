@@ -17,7 +17,7 @@ export default function MessageForm(props) {
                 cols="32"
                 placeholder="Write your programming thought here..."
             />
-            <button>
+            <button onClick={props.handleSubmit}>
                 Submit
             </button>
         </div>
