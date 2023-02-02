@@ -29,7 +29,6 @@ function App() {
     populateMessages()
   }
 
-
   return (
     <div className="App">
       <h1>Programming Thoughts</h1>
@@ -44,6 +43,8 @@ function App() {
                   messageText={message["messageText"]}
                   date={message["date"]}
                   handleDelete={() => handleDelete(message["_id"])}
+                  id={message["_id"]}
+                  populateMessages={populateMessages}
                 />
       })
         
