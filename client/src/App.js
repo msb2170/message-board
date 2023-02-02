@@ -7,13 +7,18 @@ import Message from './components/Message';
 function App() {
   const [messages, setMessages] = useState([])
 
-  useEffect(() =>  {
+  useEffect(() => {
+    populateMessages()
+  }, [messages.length])
+
+  const populateMessages = () => {
       fetch('http://localhost:8000/message')
     .then((response) => response.json())
     .then((data) => setMessages(data.db))
-  }, [messages.length])
+  }
 
   console.log(messages)
+  
 
   async function handleDelete(id) {
     await fetch(`http://localhost:8000/message/${id}`, {
@@ -21,6 +26,7 @@ function App() {
     })
     const newMessages = messages.filter(message => message.id !== id);
     setMessages(newMessages)
+    populateMessages()
   }
 
 
@@ -28,7 +34,7 @@ function App() {
     <div className="App">
       <h1>Programming Thoughts</h1>
       <MessageForm 
-        
+        populateMessages={populateMessages}
       />
       {messages.map((message, i) => {
           return <Message
