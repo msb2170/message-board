@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 import MessageForm from './components/MessageForm';
 import Message from './components/Message';
 
+
 function App() {
   const [messages, setMessages] = useState([])
 
@@ -17,9 +18,6 @@ function App() {
     .then((data) => setMessages(data.db))
   }
 
-  console.log(messages)
-  
-
   async function handleDelete(id) {
     await fetch(`http://localhost:8000/message/${id}`, {
       method: "DELETE"
@@ -28,15 +26,17 @@ function App() {
     setMessages(newMessages)
     populateMessages()
   }
-
+  
   return (
     <div className="App">
-      <h1>Programming Thoughts</h1>
-      <MessageForm 
+      <h1 className='title'>Programming Thoughts</h1>
+      <MessageForm
+        className="message-form" 
         populateMessages={populateMessages}
       />
       {messages.map((message, i) => {
           return <Message
+                  className="message"
                   key={i}
                   title={message["title"]}
                   author={message["author"]}

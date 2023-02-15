@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ObjectId = Schema.ObjectId;
 
-//message schema
+//defines a message schema that MongoDB can use
 const messageSchema = new Schema({
     id: {type: ObjectId},
     author: String,
@@ -11,7 +11,7 @@ const messageSchema = new Schema({
     messageText: String,
     date: {
         type: Date,
-        default: Date.now,
+        default: new Date().getTime(),
     }
 })
 

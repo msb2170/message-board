@@ -36,7 +36,7 @@ export default function MessageForm(props) {
 
     return (
         <div className="message-form-container">
-            <h2>Write a programming thought</h2>
+            <h2 className='title'>Write a programming thought</h2>
             <input
                 type="text"
                 id="title-text"
@@ -58,7 +58,10 @@ export default function MessageForm(props) {
                 value={message.messageText}
                 onChange={(e) => updateMessage({messageText: e.target.value})}
             />
-            <button onClick={handleSubmit}>
+            <button 
+            onClick={handleSubmit}
+            className='submit-button'
+            >
                 Submit
             </button>
         </div>
