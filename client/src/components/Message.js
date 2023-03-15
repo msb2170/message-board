@@ -43,15 +43,15 @@ export default function Message(props) {
     return (
         <div className="message-container">
             <div className="message-header">
-                <h2>{props.title}</h2>
-                <h4>Posted By: {props.author}</h4>
+                <h2 className='message-title'>{props.title}</h2>
+                <h4 className='message-author'>Posted By: {props.author}</h4>
             </div>
             <div className="message-body">
                 <h3 className='message-text'><strong>{props.messageText}</strong></h3>
                 <h4 className="date-field">Posted on: {cleanDate(props.date)}</h4>
             </div>
-            <button className="card-btn-edit" onClick={() => getQuestion(props.id)}>edit</button>
-            <button className="card-btn-del" onClick={props.handleDelete}>delete</button>
+            <button className="card-btn" onClick={() => getQuestion(props.id)}>edit</button>
+            <button className="card-btn" onClick={props.handleDelete}>delete</button>
         </div>
         
     )

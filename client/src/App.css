@@ -31,39 +31,65 @@ body {
     margin-top: 0.5rem;
 }
 
-.message-container {
+/* .message-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    flex-wrap: wrap;
-    border: 1px solid red;
     margin-left: 15%;
     margin-right: 10%;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
+    background-color: rgb(26, 21, 33);
     width: 70%;
-    overflow: hidden;
+    height: fit-content;
+    overflow: auto;
 }
 
 .message-header,
-.message-body,
-.card-btn-edit,
-.card-btn-del {
-    margin: 10px;
+.message-body {
     padding: 10px;
-    flex: 40%;
+    overflow-wrap: break-word;
+    text-overflow: clip;
 }
 
 .message-header,
 .message-body > h2,h3,h4 {
-    font-size: 1.5vw;
+    font-size: 3vmin;
 }
 
-.card-btn-edit,
-.card-btn-del {
-    border: 3px solid red;
-    align-self: flex-end;
-    margin: 0.1rem;
-    max-width: 5vw;
-    max-height: 3vh;
+.card-btn {
+    border: 1px solid red;
+    position: relative;
+    left: 45%;
+} */
+
+.message-container {
+    background-color: rgb(26, 21, 33);
+    display: grid;
+    grid-template-columns: 1.4fr 1.3fr 0.3fr; 
+    grid-template-rows: 0.8fr 1.2fr 1fr; 
+    grid-template-areas: 
+    "title . buttons"
+    "author text ."
+    "date text ."; 
+}
+
+.message-title {
+    grid-area: title;
+}
+
+.message-author {
+    grid-area: author;
+}
+
+.date-field {
+    grid-area: date;
+}
+
+.message-text {
+    grid-area: text;
+}
+
+.card-btn {
+    grid-area: buttons;
 }

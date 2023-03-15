@@ -31,12 +31,12 @@ function App() {
     <div className="App">
       <h1 className='title'>Programming Thoughts</h1>
       <MessageForm
-        className="message-form" 
+        
         populateMessages={populateMessages}
       />
       {messages.map((message, i) => {
           return <Message
-                  className="message"
+                  
                   key={i}
                   title={message["title"]}
                   author={message["author"]}
