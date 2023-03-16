@@ -16,7 +16,7 @@ export default function Message(props) {
     
     async function getQuestion(id) {
         setIsEditing(true)
-        await fetch(`http://localhost:8000/message/${id}`)
+        await fetch(`/message/${id}`)
         .then((res) => res.json())
         .then((data) => setMessage(data))
     }
@@ -28,7 +28,7 @@ export default function Message(props) {
             messageText: message.messageText,
         };
 
-        await fetch(`http://localhost:8000/message/${message._id}`, {
+        await fetch(`/message/${message._id}`, {
             method: "PATCH",
             body: JSON.stringify(editedMessage),
             headers: {

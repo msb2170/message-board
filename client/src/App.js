@@ -13,13 +13,13 @@ function App() {
   }, [messages.length])
 
   const populateMessages = () => {
-      fetch('http://localhost:8000/message')
+      fetch('/message')
     .then((response) => response.json())
     .then((data) => setMessages(data.db))
   }
 
   async function handleDelete(id) {
-    await fetch(`http://localhost:8000/message/${id}`, {
+    await fetch(`/message/${id}`, {
       method: "DELETE"
     })
     const newMessages = messages.filter(message => message.id !== id);
