@@ -17,7 +17,7 @@ export default function MessageForm(props) {
     async function handleSubmit(e) {
         const newMessage = {...message};
 
-        await fetch('http://localhost:8000/message', {
+        await fetch('/message', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
