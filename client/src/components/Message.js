@@ -60,17 +60,21 @@ export default function Message(props) {
     )
     } else {
         return (
-            <div>
+            <div className='update-container'>
                  <h2>Update your programming thought</h2>
+            <h4>Title</h4>     
             <input
+                className='title-update'
                 type="text"
                 id="title-text"
                 placeholder="Enter a Post Title"
                 value={message.title}
                 onChange={(e) => updateMessage({title: e.target.value})}
                 />
+            <h4>Author</h4>
             <input
                 type="text"
+                className='author-update'
                 id="author-text"
                 placeholder="Who are you?"
                 value={message.author}
@@ -79,11 +83,17 @@ export default function Message(props) {
             <textarea
                 rows="10"
                 cols="32"
+                className='messageText-update'
                 placeholder="Write your programming thought here..."
                 value={message.messageText}
                 onChange={(e) => updateMessage({messageText: e.target.value})}
             />
-                <button onClick={handleEdit}>Submit</button>
+                <button 
+                    onClick={handleEdit}
+                    className="submit-btn-edit"
+                >
+                    Submit
+                </button>
             </div>
         )
     }
