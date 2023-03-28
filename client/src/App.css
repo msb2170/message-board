@@ -79,6 +79,45 @@ body {
     height: 18px;
 }
 
+.update-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15%;
+    margin-right: 10%;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    background-color: rgb(26, 21, 33);
+    width: 70%;
+    height: fit-content;
+    overflow: auto;
+}
+
+.title-update, .author-update {
+    margin-bottom: 0.5rem;
+}
+
+.submit-btn {
+    background-color: rgb(26, 21, 33);
+    color: lightseagreen;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 15%;
+}
+
+.submit-btn-edit {
+    margin-bottom: 1rem;
+    background-color: rgb(26, 21, 33);
+    color: lightseagreen;
+    border-radius: 5px;
+    border: 1px solid gray;
+    width: 15%;
+}
+
+.submit-btn, .submit-btn-edit:hover {
+    cursor: pointer;
+}
 
 /* .message-container {
     background-color: rgb(26, 21, 33);

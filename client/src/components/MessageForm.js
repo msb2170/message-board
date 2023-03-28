@@ -60,7 +60,7 @@ export default function MessageForm(props) {
             />
             <button 
             onClick={handleSubmit}
-            className='submit-button'
+            className='submit-btn'
             >
                 Submit
             </button>
