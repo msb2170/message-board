@@ -14,9 +14,9 @@ export default function Message(props) {
         return date.toString().replace("T", " ").split(".")[0]
     }
     
-    async function getQuestion(id) {
+    async function getMessage(id) {
         setIsEditing(true)
-        await fetch(`/message/${id}`)
+        await fetch(`http://localhost:8000/message/${id}`)
         .then((res) => res.json())
         .then((data) => setMessage(data))
     }
@@ -28,7 +28,7 @@ export default function Message(props) {
             messageText: message.messageText,
         };
 
-        await fetch(`/message/${message._id}`, {
+        await fetch(`http://localhost:8000/message/${message._id}`, {
             method: "PATCH",
             body: JSON.stringify(editedMessage),
             headers: {
@@ -51,7 +51,7 @@ export default function Message(props) {
                 <h3 className='message-text'><strong>{props.messageText}</strong></h3>
             </div>
             <div className='card-btns'>
-            <button className="card-btn" onClick={() => getQuestion(props.id)}>edit</button>
+            <button className="card-btn" onClick={() => getMessage(props.id)}>edit</button>
             <span className='vert-line'></span>
             <button className="card-btn" onClick={props.handleDelete}>delete</button>
             </div>
