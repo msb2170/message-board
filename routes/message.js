@@ -3,7 +3,7 @@ const { default: mongoose } = require('mongoose');
 const router = express.Router();
 
 //Pass in the user model
-let Message = require('../models/message')
+let Message = require('../models/message');
 
 //Get a list of all messages
 router.get('/message', (req, res) => {

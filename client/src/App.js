@@ -1,4 +1,7 @@
-
+import {Switch, BrowserRouter, Route} from 'react-router-dom'
+import Register from './components/Register'
+import Login from './components/Login'
+import Profile from './components/Profile'
 import './App.css';
 import {useState, useEffect} from 'react'
 import MessageForm from './components/MessageForm';
