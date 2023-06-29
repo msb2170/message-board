@@ -20,4 +20,4 @@ jobs:
         username: ${{secrets.DIGITALOCEAN_USERNAME}}
         key: ${{secrets.DIGITALOCEAN_PRIVATE_KEY}}
         script: |
-        touch test-file
+        echo 'a;oisdjfa;osidjf;asodijfa;sodif'
