@@ -18,4 +18,4 @@ jobs:
       with:
         # DigitalOcean API Token
         token: dop_v1_e8fe335655c3143447676c9fe96d9e882bd71df9d56e47b62eb593f56577ce91
-        run: echo 'test test test'
+        run: echo 'Deployment successful'
