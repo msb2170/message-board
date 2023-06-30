@@ -14,7 +14,7 @@ jobs:
 
     steps:
     - name: GitHub Action for DigitalOcean - doctl
-      uses: digitalocean/action-doctl@v2.3.0
+      uses: digitalocean/action-doctl
       with:
         # DigitalOcean API Token
         token: dop_v1_e8fe335655c3143447676c9fe96d9e882bd71df9d56e47b62eb593f56577ce91
