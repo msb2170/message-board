@@ -1,0 +1,20 @@
+name: CI/CD with GitHub Actions
+
+on:
+  push:
+    branches:
+      - cdci
+  pull_request:
+    branches:
+      - cdci
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: GitHub Action for DigitalOcean - doctl
+      uses: digitalocean/action-doctl@v2.3.0
+      with:
+        # DigitalOcean API Token
+        token: dop_v1_e8fe335655c3143447676c9fe96d9e882bd71df9d56e47b62eb593f56577ce91
