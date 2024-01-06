@@ -40,6 +40,7 @@ export default function MessageForm(props) {
             <input
                 type="text"
                 id="title-text"
+                role='title-text'
                 placeholder="Enter a Post Title"
                 value={message.title}
                 onChange={(e) => updateMessage({title: e.target.value})}
@@ -47,6 +48,7 @@ export default function MessageForm(props) {
             <input
                 type="text"
                 id="author-text"
+                role="author-text"
                 placeholder="Who are you?"
                 value={message.author}
                 onChange={(e) => updateMessage({author: e.target.value})}
@@ -55,6 +57,7 @@ export default function MessageForm(props) {
                 rows="10"
                 cols="32"
                 placeholder="Write your programming thought here..."
+                role='textbox'
                 value={message.messageText}
                 onChange={(e) => updateMessage({messageText: e.target.value})}
             />

@@ -24,6 +24,7 @@ router.get('/message', (req, res) => {
 router.get('/message/:id', (req, res) => {
     const {id} = req.params
     
+    //Handle the case where the post doesn't exist, if it does, return the post
     Message.findById(id).exec((err, post) => {
         if (err) {
             return res.status(500).json({err})
@@ -40,6 +41,7 @@ router.post('/message', (req, res) => {
         messageText: req.body.messageText,
         date: req.body.date
     })
+    //Save the message to the database
     message.save((err, db) => {
         if (err) {
             return res.status(500).json({err})
@@ -53,9 +55,12 @@ router.patch('/message/:id', (req, res) => {
     const { id: _id } = req.params;
     const post = req.body;
 
+    //Handle the case where the post doesn't exist
     if (!mongoose.Types.ObjectId.isValid(_id)) {
         return res.status(404).send('No post with that ID')
     }
+
+    //Update the post
     Message.findByIdAndUpdate(_id, {...post, _id}, {new: true}).exec((err, updatedPost) => {
         if (err) {
             return res.status(500).json(err)
@@ -68,10 +73,12 @@ router.patch('/message/:id', (req, res) => {
 router.delete('/message/:id', (req,res) => {
     const {id} = req.params
 
+    //Handle the case where the post doesn't exist
     if (!mongoose.Types.ObjectId.isValid(id)) {
         return res.status(404).send('No post with that ID')
     }
     
+    //Delete the post
     Message.findByIdAndRemove(id).exec((err) => {
         if (err) {
             return res.status(500).json(err)
