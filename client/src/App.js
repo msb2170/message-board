@@ -15,7 +15,7 @@ function App() {
 
   const populateMessages = () => {
     //Get the messages from the database
-      fetch('http://localhost:8000/message')
+      fetch('https://message-board-wheat.vercel.app/message')
     //Convert the response to JSON
     .then((response) => response.json())
     //Set the messages state to the data from the database
@@ -24,7 +24,7 @@ function App() {
 
   async function handleDelete(id) {
     //Get the message to be deleted
-    await fetch(`http://localhost:8000/message/${id}`, {
+    await fetch(`https://message-board-wheat.vercel.app/message/${id}`, {
       method: "DELETE"
     })
     //Remove the message from the messages array

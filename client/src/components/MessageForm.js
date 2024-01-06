@@ -17,7 +17,7 @@ export default function MessageForm(props) {
     async function handleSubmit(e) {
         const newMessage = {...message};
 
-        await fetch('http://localhost:8000/message', {
+        await fetch('https://message-board-wheat.vercel.app/message', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
